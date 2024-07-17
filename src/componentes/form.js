@@ -11,11 +11,11 @@ export function Form({addNote}){
             alert('Complete la descripcion');
         }
         else{
-            addNote ={
+            addNote({
                 title,
                 description,
                 important
-            }
+            });
             alert('Nota Agregada');
         }
         setTitle('');

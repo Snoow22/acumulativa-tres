@@ -11,15 +11,17 @@ export function App(){
     const addNote = (note) => {
         setNotes([...notes, note])
     }
-    const deleteNote = (noteDeleting) => {
-        const newNotes = notes.filter((note) => note !== noteDeleting);
+    const deleteNote = (index) => {
+        const newNotes = [...notes];
+        newNotes.splice(index, 1);
         setNotes(newNotes);
     }
+    console.log("notas de app: ", notes)
     return (
         <div className="App">
             <Header/>
             <Form addNote={addNote}/>
-            <NotesContainer/>
+            <NotesContainer notes={notes} deleteNote={deleteNote}/>
         </div>
     )
 }
